@@ -1307,6 +1307,7 @@ pub enum Event {
     #[serde(rename = "WEBHOOKS_UPDATE")]
     WebhookUpdate(WebhookUpdateEvent),
     /// An interaction was created.
+    #[serde(rename = "INTERACTION_CREATE")]
     InteractionCreate(InteractionCreateEvent),
     /// A guild integration was created
     IntegrationCreate(IntegrationCreateEvent),

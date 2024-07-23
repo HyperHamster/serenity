@@ -1,4 +1,6 @@
-use crate::model::{Colour, Timestamp, channel::MessageId};
+use crate::model::{Colour, Timestamp};
+#[cfg(feature = "unstable_discord_api")]
+use crate::model::channel::MessageId;
 
 /// Represents a rich embed which allows using richer markdown, multiple fields and more. This was
 /// heavily inspired by [slack's attachments].

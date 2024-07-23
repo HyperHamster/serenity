@@ -152,6 +152,7 @@ pub struct Message {
     pub poll: Option<Box<Poll>>,
 
 
+
     #[cfg(feature = "unstable_discord_api")]
     #[serde(default)]
     pub message_snapshots: Vec<MessageSnapshot>,
