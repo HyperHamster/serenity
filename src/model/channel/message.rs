@@ -156,6 +156,7 @@ pub struct Message {
     pub message_snapshots: Vec<MessageSnapshot>,
 }
 
+/// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-object)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[non_exhaustive]
@@ -180,6 +181,8 @@ pub struct PartialMessage {
     #[serde(default)]
     pub components: Vec<ActionRow>,
 }
+
+
 
 #[cfg(feature = "model")]
 impl Message {
@@ -1066,6 +1069,8 @@ enum_number! {
     }
 }
 
+
+
 enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-types).
     #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
@@ -1079,6 +1084,8 @@ enum_number! {
         _ => Unknown(u8),
     }
 }
+
+
 
 enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-activity-types).
@@ -1131,7 +1138,7 @@ pub struct MessageActivity {
 
 /// Reference data sent with crossposted messages.
 ///
-/// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure).
+/// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[non_exhaustive]
@@ -1147,7 +1154,7 @@ pub struct MessageReference {
     pub fail_if_not_exists: Option<bool>,
 
 
-    
+
     #[serde(rename = "type")]
     pub kind: MessageReferenceType,
 }
