@@ -158,7 +158,7 @@ pub struct Message {
 
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-object)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[non_exhaustive]
 pub struct MessageSnapshot {
     pub message: PartialMessage,
