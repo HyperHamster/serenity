@@ -152,7 +152,8 @@ pub struct Message {
     pub poll: Option<Box<Poll>>,
 
 
-    
+
+    #[serde(default)]
     pub message_snapshots: Vec<MessageSnapshot>,
 }
 
@@ -164,6 +165,7 @@ pub struct MessageSnapshot {
     pub message: PartialMessage,
 }
 
+/// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-structure)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[non_exhaustive]
