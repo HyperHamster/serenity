@@ -1076,9 +1076,9 @@ enum_number! {
 
 
 
+#[cfg(feature = "unstable_discord_api")]
 enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-types).
-    #[cfg(feature = "unstable_discord_api")]
     #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
     #[serde(from = "u8", into = "u8")]
