@@ -154,14 +154,15 @@ pub struct Message {
 
 
     #[cfg(feature = "unstable_discord_api")]
-    #[serde(default)]
+    // #[serde(default)]
     pub message_snapshots: Vec<MessageSnapshot>,
 }
 
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-object)
 #[cfg(feature = "unstable_discord_api")]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-#[derive(Clone, Debug, Default, Deserialize, Serialize)]
+// #[derive(Clone, Debug, Default, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[non_exhaustive]
 pub struct MessageSnapshot {
     pub message: PartialMessage,
@@ -170,7 +171,8 @@ pub struct MessageSnapshot {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-structure)
 #[cfg(feature = "unstable_discord_api")]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-#[derive(Clone, Debug, Default, Deserialize, Serialize)]
+// #[derive(Clone, Debug, Default, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[non_exhaustive]
 pub struct PartialMessage {
     #[serde(rename = "type")]
