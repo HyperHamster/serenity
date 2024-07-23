@@ -217,6 +217,11 @@ impl Default for CreateEmbed {
             url: None,
             video: None,
             provider: None,
+
+
+
+            #[cfg(feature = "unstable_discord_api")]
+            reference_id: None,
         })
     }
 }
