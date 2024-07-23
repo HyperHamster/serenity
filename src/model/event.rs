@@ -541,6 +541,11 @@ pub struct MessageUpdateEvent {
     pub role_subscription_data: Option<Option<RoleSubscriptionData>>,
     pub guild_id: Option<GuildId>,
     pub member: Option<Option<Box<PartialMember>>>,
+
+
+
+    #[cfg(feature = "unstable_discord_api")]
+    pub message_snapshots: Option<Vec<MessageSnapshot>>,
 }
 
 impl MessageUpdateEvent {
