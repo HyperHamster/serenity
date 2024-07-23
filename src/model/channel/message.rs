@@ -152,12 +152,13 @@ pub struct Message {
     pub poll: Option<Box<Poll>>,
 
 
-
+    #[cfg(feature = "unstable_discord_api")]
     #[serde(default)]
     pub message_snapshots: Vec<MessageSnapshot>,
 }
 
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-object)
+#[cfg(feature = "unstable_discord_api")]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[non_exhaustive]
@@ -166,6 +167,7 @@ pub struct MessageSnapshot {
 }
 
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-snapshot-structure)
+#[cfg(feature = "unstable_discord_api")]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[non_exhaustive]
@@ -1075,6 +1077,7 @@ enum_number! {
 
 enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-types).
+    #[cfg(feature = "unstable_discord_api")]
     #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
     #[serde(from = "u8", into = "u8")]
@@ -1157,6 +1160,7 @@ pub struct MessageReference {
 
 
 
+    #[cfg(feature = "unstable_discord_api")]
     #[serde(rename = "type")]
     pub kind: MessageReferenceType,
 }
@@ -1171,6 +1175,7 @@ impl From<&Message> for MessageReference {
 
 
 
+            #[cfg(feature = "unstable_discord_api")]
             kind: Default::default(),
         }
     }
@@ -1186,6 +1191,7 @@ impl From<(ChannelId, MessageId)> for MessageReference {
 
 
 
+            #[cfg(feature = "unstable_discord_api")]
             kind: Default::default(),
         }
     }
