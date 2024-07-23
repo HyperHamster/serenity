@@ -154,7 +154,7 @@ pub struct Message {
 
 
     #[cfg(feature = "unstable_discord_api")]
-    // #[serde(default)]
+    #[serde(default)]
     pub message_snapshots: Vec<MessageSnapshot>,
 }
 
@@ -185,8 +185,8 @@ pub struct PartialMessage {
     pub timestamp: Timestamp,
     pub edited_timestamp: Option<Timestamp>,
     pub flags: Option<MessageFlags>,
-    #[serde(default)]
-    pub components: Vec<ActionRow>,
+    // #[serde(default)]
+    // pub components: Vec<ActionRow>,
 }
 
 

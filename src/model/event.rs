@@ -585,6 +585,11 @@ impl MessageUpdateEvent {
             role_subscription_data,
             guild_id,
             member,
+
+
+
+            #[cfg(feature = "unstable_discord_api")]
+            message_snapshots
         } = self;
 
         // Discord won't send a MessageUpdateEvent with a different MessageId and ChannelId than we
@@ -624,6 +629,11 @@ impl MessageUpdateEvent {
         if let Some(x) = role_subscription_data { message.role_subscription_data.clone_from(x) }
         message.guild_id = *guild_id;
         if let Some(x) = member { message.member.clone_from(x) }
+
+
+
+        #[cfg(feature = "unstable_discord_api")]
+        if let Some(x) = message_snapshots { message.message_snapshots.clone_from(x) }
     }
 }
 
