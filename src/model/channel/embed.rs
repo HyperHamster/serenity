@@ -67,6 +67,12 @@ pub struct Embed {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub fields: Vec<EmbedField>,
+
+
+
+    #[cfg(feature = "unstable_discord_api")]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reference_id: Option<MessageId>,
 }
 
 /// An author object in an embed.
@@ -218,4 +224,11 @@ pub struct EmbedVideo {
     pub height: Option<u32>,
     /// The width of the video in pixels.
     pub width: Option<u32>,
+
+
+
+    #[cfg(feature = "unstable_discord_api")]
+    pub placeholder_version: Option<u8>,
+    #[cfg(feature = "unstable_discord_api")]
+    pub placeholder: Option<String>,
 }
