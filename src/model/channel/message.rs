@@ -1159,6 +1159,10 @@ impl From<&Message> for MessageReference {
             channel_id: m.channel_id,
             guild_id: m.guild_id,
             fail_if_not_exists: None,
+
+
+
+            kind: Default::default(),
         }
     }
 }
@@ -1170,6 +1174,10 @@ impl From<(ChannelId, MessageId)> for MessageReference {
             channel_id: pair.0,
             guild_id: None,
             fail_if_not_exists: None,
+
+
+
+            kind: Default::default(),
         }
     }
 }
